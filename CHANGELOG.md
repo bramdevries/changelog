@@ -1,7 +1,7 @@
 # Change Log
 A change log for the change log parser
 
-## 0.0.1 - 2014-08-09
+## 0.0.1 - 2014-11-22
 
 ### Added
 

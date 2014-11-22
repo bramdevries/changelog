@@ -18,7 +18,7 @@ Will return
   "releases": [
     {
       "name": "0.0.1",
-      "date": "2014-08-09",
+      "date": "2014-11-22",
       "changes": {
         "added": [
           "<code>getReleases</code> method that retrieves the releases described in a change log",
