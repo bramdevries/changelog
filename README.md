@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bramdevries/changelog.svg?branch=master)](https://travis-ci.org/bramdevries/changelog)
+
 # Changelog
 > Parse changelogs like a pro
 
