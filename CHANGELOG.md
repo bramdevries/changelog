@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## 0.3.0 - 2014-12-23
+
+### Changed
+
+* Changed the underlying Markdown parser to [league/commonmark](https://github.com/thephpleague/commonmark)
+
 ## 0.2.0 - 2014-11-22
 
 ### Added

@@ -2,6 +2,7 @@
 
 namespace Changelog;
 
+use League\CommonMark\CommonMarkConverter;
 use Michelf\Markdown;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -137,7 +138,8 @@ class Parser
 	 */
 	public function setContent($value)
 	{
-		$this->content = new Crawler(Markdown::defaultTransform($value));
+		$converter = new CommonMarkConverter;
+		$this->content = new Crawler($converter->convertToHtml($value));
 	}
 
 	/**
