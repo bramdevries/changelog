@@ -143,7 +143,7 @@ class Parser
 	}
 
 	/**
-	 * @param null $key
+	 * @param string $key
 	 * @return bool
 	 */
 	private function isAllowedSection($key = null)
