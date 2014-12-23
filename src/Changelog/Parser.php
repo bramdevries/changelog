@@ -3,7 +3,6 @@
 namespace Changelog;
 
 use League\CommonMark\CommonMarkConverter;
-use Michelf\Markdown;
 use Symfony\Component\DomCrawler\Crawler;
 
 class Parser
