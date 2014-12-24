@@ -46,16 +46,6 @@ class Parser
 	}
 
 	/**
-	 * Return the description of a change log
-	 *
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return $this->content->filter('h1')->nextAll()->first()->html();
-	}
-
-	/**
 	 * Retrieve all the releases from the change log
 	 *
 	 * @return array
@@ -149,4 +139,20 @@ class Parser
 	{
 		return in_array($key, $this->sections);
 	}
+
+	/**
+	 * @param array $value
+	 */
+    public function setSections($value = [])
+    {
+        $this->sections = $value;
+    }
+
+	/**
+	 * @return array
+	 */
+    public function getSections()
+    {
+        return $this->sections;
+    }
 }

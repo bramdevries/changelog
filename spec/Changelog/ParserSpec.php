@@ -17,6 +17,12 @@ class ParserSpec extends ObjectBehavior
 		$this->shouldHaveType('Changelog\Parser');
 	}
 
+	function it_can_set_sections()
+	{
+		$this->setSections(['added', 'changed', 'fixed']);
+		$this->getSections()->shouldReturn(['added', 'changed', 'fixed']);
+	}
+
 	function it_can_retrieve_the_description_of_changelog()
 	{
 		$this->getDescription()->shouldReturn('A general description of your changelog');
