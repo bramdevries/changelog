@@ -2,6 +2,8 @@
 
 namespace Changelog;
 
+use Changelog\Retrievers\ChangesRetriever;
+use Changelog\Retrievers\ReleasesRetriever;
 use League\CommonMark\CommonMarkConverter;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -18,26 +20,6 @@ class Parser
 	protected $content;
 
 	/**
-	 * @var Array
-	 */
-	protected $releases;
-
-	/**
-	 * @var Array
-	 */
-	protected $changes;
-
-	/**
-	 * The default methods to use to retrieve a change log
-	 *
-	 * @var array
-	 */
-	protected $defaults = [
-		'method' => 'filter',
-		'query'  => 'h3',
-	];
-
-	/**
 	 * @param $content
 	 */
 	public function __construct($content)
@@ -52,72 +34,15 @@ class Parser
 	 */
 	public function getReleases()
 	{
-		$this->releases = [];
-
-		// Retrieve the different releases
-		$this->content->filter('h2')->each(function ($item) {
-			$title = explode(' - ', $item->html());
-			$release = [
-				'name'    => $title[0],
-				'date'    => $title[1],
-				'changes' => $this->getChanges($item, false),
-			];
-
-			$this->releases[] = $release;
-		});
-
-		return $this->releases;
+		return (new ReleasesRetriever($this->content->filter('h2')))->retrieve();
 	}
 
 	/**
-	 * Retrieve a set of changes for a single release
-	 *
-	 * @param $release
-	 * @param $json boolean
-	 * @return array
+	 * @return array|void
 	 */
-	public function getChanges($release = null, $json = true)
+	public function getChanges()
 	{
-		$defaults = $this->defaults;
-
-		$defaults['item'] = $this->content;
-
-		// If an item is passed through (because the entire file is being parsed, set different options).
-		if ($release) {
-			$defaults['method'] = 'filterXPath';
-			$defaults['query'] = 'h3[preceding-sibling::h2[1][.="' . $release->html() . '"]]';
-			$defaults['item'] = $release->nextAll();
-		}
-
-		$this->changes = [];
-		$defaults['item']->{$defaults['method']}($defaults['query'])
-			->each(function ($section){
-				$key = strtolower($section->html());
-
-				if ($this->isAllowedSection($key)) {
-					$section->nextAll()
-						->first()
-						->filter('li')
-						->each(function ($item) use ($key) {
-							$this->changes[$key][] = $item->html();
-						});
-				}
-			});
-
-		return $json ? json_encode($this->changes) : $this->changes;
-	}
-
-	/**
-	 * Create a json representation of a change log
-	 *
-	 * @return string
-	 */
-	public function toJson()
-	{
-		return json_encode([
-			'description' => $this->getDescription(),
-			'releases'    => $this->getReleases()
-		]);
+		return (new ChangesRetriever($this->content->filter('h3')))->retrieve();
 	}
 
 	/**
@@ -132,27 +57,10 @@ class Parser
 	}
 
 	/**
-	 * @param string $key
-	 * @return bool
+	 * @return string
 	 */
-	private function isAllowedSection($key = null)
+	public function getDescription()
 	{
-		return in_array($key, $this->sections);
+		return $this->content->filter('h1')->nextAll()->first()->html();
 	}
-
-	/**
-	 * @param array $value
-	 */
-    public function setSections($value = [])
-    {
-        $this->sections = $value;
-    }
-
-	/**
-	 * @return array
-	 */
-    public function getSections()
-    {
-        return $this->sections;
-    }
 }
