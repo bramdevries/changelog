@@ -8,7 +8,7 @@ use Symfony\Component\DomCrawler\Crawler;
 abstract class AbstractRetriever
 {
 	/**
-	 * @var Crawler
+	 * @var array
 	 */
 	protected $nodes;
 
