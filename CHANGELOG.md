@@ -1,6 +1,16 @@
 # Change Log
 A change log for the change log parser
 
+## 0.5.0 - 2014-12-25
+
+### Changed
+
+* getChanges and getReleases now return arrays instead of JSON
+
+## 0.4.0 - 2014-12-24
+
+_No notable changes_
+
 ## 0.3.0 - 2014-12-23
 
 ### Changed
