@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## 0.6.0 - 2014-12-28
+
+### Added
+
+* added `.gitattributes` file to only include necessary content during a composer install
+
 ## 0.5.0 - 2014-12-25
 
 ### Changed
