@@ -15,7 +15,9 @@ class ChangesRetriever extends AbstractRetriever
 
 		$sections = parent::retrieve();
 		foreach ($sections as $section) {
-			$changes[$section['section']] = $section['changes'];
+			if (isset($section['section'])) {
+				$changes[$section['section']] = $section['changes'];
+			}
 		}
 
 		return $changes;
@@ -29,6 +31,10 @@ class ChangesRetriever extends AbstractRetriever
 	protected function parse(Crawler $node)
 	{
 		$key = strtolower($node->html());
+
+		if (!$key) {
+			return;
+		}
 
 		$lines = (new LineRetriever($node->nextAll()->first()->filter('li')))->retrieve();
 

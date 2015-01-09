@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## 0.6.1 - 2015-01-09
+
+### Fixed
+
+* Fixed an issue where a section would sometimes be empty
+
 ## 0.6.0 - 2014-12-28
 
 ### Added
