@@ -14,6 +14,6 @@ class LineRetriever extends AbstractRetriever
 	 */
 	protected function parse(Crawler $node)
 	{
-		return $node->html();
+		return str_replace(["\r", "\n"], "", $node->html());
 	}
 }

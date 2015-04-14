@@ -104,6 +104,17 @@ class ParserSpec extends ObjectBehavior
 		]);
 	}
 
+	function it_can_retrieve_html_code()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/html_code.md'));
+		$this->getChanges()->shouldReturn([
+			'added' => [
+				'Addition one',
+				'<code>Piece of code</code> Addition two'
+			]
+		]);
+	}
+
 	function it_can_fails_on_empty_headers()
 	{
 		$this->beConstructedWith(file_get_contents('spec/mocks/header_with_forgotten_text.md'));
