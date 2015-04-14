@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## 0.6.2 - 2015-04-15
+
+### Fixed
+
+* Fix issue with empty lines being parsed
+
 ## 0.6.1 - 2015-01-09
 
 ### Fixed
