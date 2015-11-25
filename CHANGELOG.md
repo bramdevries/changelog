@@ -4,6 +4,7 @@ A change log for the change log parser
 ## Unreleased
 
 * Updated the following dependencies to their latest versions: `league/commonmark:0.12.0`, `symfony/dom-crawler:2.7.7`, `symfony/css-selector:2.7.7`
+* PSR-4 autoloading
 
 ## 0.6.2 - 2015-04-15
 
