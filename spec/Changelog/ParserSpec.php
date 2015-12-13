@@ -90,6 +90,60 @@ on multiple lines');
 		]);
     }
 
+	function it_can_retrieve_unreleased_changes()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/unreleased.md'));
+
+		$this->getReleases()->shouldReturn([
+				[
+						'name' => 'Unreleased',
+						'date' => null,
+						'changes' => [
+								'added' => [
+										'Addition 1',
+										'Addition 2',
+								],
+								'changed' => [
+										'Change 1',
+										'Change 2',
+								],
+								'removed' => [
+										'Removal 1',
+										'Removal 2',
+								]
+						]
+				],
+				[
+						'name' => '0.0.3',
+						'date' => '2014-08-09',
+						'changes' => [
+								'added' => [
+										'Addition 3',
+										'Addition 4',
+								],
+						]
+				],
+				[
+						'name' => '0.0.2',
+						'date' => '2014-07-10',
+						'changes' => [
+								'changed' => [
+										'Change 3',
+								],
+						]
+				],
+				[
+						'name' => '0.0.1',
+						'date' => '2014-05-31',
+						'changes' => [
+								'removed' => [
+										'Removal 3',
+								]
+						]
+				]
+		]);
+	}
+
 	function it_can_retrieve_a_single_list_of_changes()
 	{
 		$this->beConstructedWith(file_get_contents('spec/mocks/pull_request.md'));

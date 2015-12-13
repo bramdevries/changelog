@@ -23,7 +23,7 @@ class ReleasesRetriever extends AbstractRetriever
 
 		return [
 			'name'    => $title[0],
-			'date'    => $title[1],
+			'date'    => isset($title[1]) ? $title[1] : null,
 			'changes' => $changes,
 		];
 	}
