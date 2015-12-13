@@ -22,6 +22,22 @@ class ParserSpec extends ObjectBehavior
 		$this->getDescription()->shouldReturn('A general description of your changelog');
 	}
 
+	function it_can_retrieve_multi_line_description()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/multi_line_description.md'));
+
+		$this->getDescription()->shouldReturn('A general description of your changelog
+
+on multiple lines');
+	}
+
+	function it_can_retrieve_no_description_if_not_available()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/no_description.md'));
+
+		$this->getDescription()->shouldReturn(null);
+	}
+
 	function it_can_retrieve_releases()
 	{
 		$this->getReleases()->shouldReturn([
@@ -73,6 +89,60 @@ class ParserSpec extends ObjectBehavior
 			]
 		]);
     }
+
+	function it_can_retrieve_unreleased_changes()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/unreleased.md'));
+
+		$this->getReleases()->shouldReturn([
+				[
+						'name' => 'Unreleased',
+						'date' => null,
+						'changes' => [
+								'added' => [
+										'Addition 1',
+										'Addition 2',
+								],
+								'changed' => [
+										'Change 1',
+										'Change 2',
+								],
+								'removed' => [
+										'Removal 1',
+										'Removal 2',
+								]
+						]
+				],
+				[
+						'name' => '0.0.3',
+						'date' => '2014-08-09',
+						'changes' => [
+								'added' => [
+										'Addition 3',
+										'Addition 4',
+								],
+						]
+				],
+				[
+						'name' => '0.0.2',
+						'date' => '2014-07-10',
+						'changes' => [
+								'changed' => [
+										'Change 3',
+								],
+						]
+				],
+				[
+						'name' => '0.0.1',
+						'date' => '2014-05-31',
+						'changes' => [
+								'removed' => [
+										'Removal 3',
+								]
+						]
+				]
+		]);
+	}
 
 	function it_can_retrieve_a_single_list_of_changes()
 	{

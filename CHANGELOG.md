@@ -1,6 +1,14 @@
 # Change Log
 A change log for the change log parser
 
+## 0.7.1 - 2015-12-13
+
+### Fixed
+
+- Fixed issue where the description returned the first release if no description was given
+- Better support for multi line descriptions.
+- Fixed issue where the parser crashed if a release had no date (for example and `unreleased` section)
+
 ## 0.7.0 - 2015-11-25
 
 * Updated the following dependencies to their latest versions: `league/commonmark:0.12.0`, `symfony/dom-crawler:2.7.7`, `symfony/css-selector:2.7.7`
