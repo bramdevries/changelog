@@ -22,6 +22,22 @@ class ParserSpec extends ObjectBehavior
 		$this->getDescription()->shouldReturn('A general description of your changelog');
 	}
 
+	function it_can_retrieve_multi_line_description()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/multi_line_description.md'));
+
+		$this->getDescription()->shouldReturn('A general description of your changelog
+
+on multiple lines');
+	}
+
+	function it_can_retrieve_no_description_if_not_available()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/no_description.md'));
+
+		$this->getDescription()->shouldReturn(null);
+	}
+
 	function it_can_retrieve_releases()
 	{
 		$this->getReleases()->shouldReturn([
