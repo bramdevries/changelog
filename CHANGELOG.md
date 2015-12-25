@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## 0.8.0 - 2015-12-25
+
+### Changed
+
+- Updated symfony requirements to 2.8
+
 ## 0.7.1 - 2015-12-13
 
 ### Fixed
