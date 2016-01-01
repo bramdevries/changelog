@@ -3,6 +3,8 @@ A change log for the change log parser
 
 ## 0.9.0 - 2016-01-01
 
+### Changed
+
 - Updated symfony dependencies to 3.0
 
 ## 0.8.0 - 2015-12-25
