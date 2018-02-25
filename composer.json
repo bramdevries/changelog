@@ -9,8 +9,8 @@
   ],
   "require": {
     "php": ">=7",
-    "symfony/dom-crawler": "~3.0",
-    "symfony/css-selector": "~3.0",
+    "symfony/dom-crawler": "~4",
+    "symfony/css-selector": "~4",
     "league/commonmark": "^0.12.0"
   },
   "require-dev": {
