@@ -7,7 +7,7 @@ use Symfony\Component\DomCrawler\Crawler;
 class ChangesRetriever extends AbstractRetriever
 {
 	/**
-	 * @return array|void
+	 * @return array
 	 */
 	public function retrieve()
 	{
@@ -33,7 +33,7 @@ class ChangesRetriever extends AbstractRetriever
 		$key = strtolower($node->html());
 
 		if (!$key) {
-			return;
+			return [];
 		}
 
 		$lines = (new LineRetriever($node->nextAll()->first()->filter('li')))->retrieve();
