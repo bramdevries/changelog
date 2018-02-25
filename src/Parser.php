@@ -39,7 +39,7 @@ class Parser
     }
 
     /**
-     * @return array|void
+     * @return array
      */
     public function getChanges()
     {
