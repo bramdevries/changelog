@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## Unreleased
+
+### Changed
+
+- Drop support for PHP5, PHP 7 is now required
+
 ## 0.9.0 - 2016-01-01
 
 ### Changed
