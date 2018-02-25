@@ -1,7 +1,7 @@
 # Change Log
 A change log for the change log parser
 
-## Unreleased
+## 0.10.0 - 2018-02-25
 
 ### Changed
 
