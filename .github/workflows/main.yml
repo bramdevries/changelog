@@ -1,0 +1,16 @@
+name:
+  CI
+on: [push]
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Installing PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 7.2
+      - name: Installing dependencies
+        run: composer install --prefer-dist --ignore-platform-reqs
+      - name: Tests
+        run: composer test
