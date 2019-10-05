@@ -8,6 +8,10 @@ A change log for the change log parser
 - [internal] Replaced Travis with GitHub actions
 - [internal] Updated to PHPSpec 6
 
+### Security
+
+- Upgraded to `league/commonmark` to fix CVE-2019-10010
+
 ## 0.10.0 - 2018-02-25
 
 ### Changed
