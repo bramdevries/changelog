@@ -1,6 +1,12 @@
 # Change Log
 A change log for the change log parser
 
+## Unreleased
+
+### Changed
+
+- [internal] Replaced Travis with GitHub actions
+
 ## 0.10.0 - 2018-02-25
 
 ### Changed
