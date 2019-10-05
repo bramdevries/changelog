@@ -20,5 +20,10 @@
     "psr-4": {
       "Changelog\\": "src"
     }
+  },
+  "scripts": {
+    "test": [
+      "phpspec run --format=pretty"
+    ]
   }
 }
