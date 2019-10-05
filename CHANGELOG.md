@@ -6,6 +6,7 @@ A change log for the change log parser
 ### Changed
 
 - [internal] Replaced Travis with GitHub actions
+- [internal] Updated to PHPSpec 6
 
 ## 0.10.0 - 2018-02-25
 

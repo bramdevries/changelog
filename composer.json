@@ -14,7 +14,7 @@
     "league/commonmark": "^0.17"
   },
   "require-dev": {
-    "phpspec/phpspec": "~4"
+    "phpspec/phpspec": "~6"
   },
   "autoload": {
     "psr-4": {
