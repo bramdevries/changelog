@@ -9,7 +9,7 @@ jobs:
       - name: Installing PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: 7.2
+          php-version: 7.4
       - name: Installing dependencies
         run: composer install --prefer-dist --ignore-platform-reqs
       - name: Tests
