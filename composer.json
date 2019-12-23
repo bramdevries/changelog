@@ -1,5 +1,6 @@
 {
   "name": "bramdevries/changelog",
+  "license": "MIT",
   "description": "A http://keepachangelog.com/ parser for the common developer",
   "authors": [
     {
