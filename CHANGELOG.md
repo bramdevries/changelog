@@ -3,6 +3,8 @@ A change log for the change log parser
 
 ## Unreleased
 
+## 0.11.0 - 2019-12-23
+
 ### Changed
 
 - Allow `symfony/dom-crawler:5` and `symfony/css-selector:5`
