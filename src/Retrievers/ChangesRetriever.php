@@ -36,7 +36,7 @@ class ChangesRetriever extends AbstractRetriever
 			return [];
 		}
 
-		$lines = (new LineRetriever($node->nextAll()->first()->filter('li')))->retrieve();
+		$lines = (new LineRetriever($node->nextAll()->first()->children('li')))->retrieve();
 
 		return [
 			'section' => $key,
