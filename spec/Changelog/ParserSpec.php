@@ -190,4 +190,15 @@ on multiple lines');
 		$this->beConstructedWith(file_get_contents('spec/mocks/header_with_forgotten_text.md'));
 		$this->getChanges()->shouldReturn([]);
 	}
+
+	function it_can_handle_nested_bullet_points()
+	{
+		$this->beConstructedWith(file_get_contents('spec/mocks/with_nested_bullets.md'));
+
+		$this->getChanges()->shouldReturn([
+			'changed' => [
+				'I have nested bullet points<ul><li>nested bullet point 1</li><li>nested bullet point 2</li></ul>'
+			]
+		]);
+	}
 }
